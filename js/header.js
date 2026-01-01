@@ -20,7 +20,7 @@ window.renderHeader = function () {
         <div class="relative z-10 flex flex-col items-center justify-center h-full text-center px-4 w-full">
             <h1 class="text-5xl md:text-7xl font-bold text-white mb-4 text-shadow tracking-tight">ДВТ 6.0</h1>
             <p class="text-white text-lg md:text-xl max-w-[600px] leading-relaxed text-shadow opacity-90">
-                На этом сайте вы можете узнать все о турнире, следить за результатами матчей и найти заведение где можно поесть
+                На этом сайте вы можете узнать все о турнире, посмотреть расписание матчей и нийти заведения где можно поесть
             </p>
         </div>
     </header>

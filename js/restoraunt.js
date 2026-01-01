@@ -256,7 +256,7 @@ window.renderRestoraunt = function () {
             <!-- Section Header -->
             <div class="text-center mb-10">
                 <h2 class="text-3xl md:text-4xl font-bold text-[#2B2A2A] mb-3">
-                    🍽 Вкусные места города
+                    🍽 Вкусные места города Тольятти
                 </h2>
                 <p class="text-gray-600 max-w-lg mx-auto">
                     Рекомендации от организаторов и участников прошлых турниров
