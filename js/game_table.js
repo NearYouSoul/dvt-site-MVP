@@ -46,12 +46,13 @@ window.renderGameTable = function () {
                 gis: 'https://2gis.ru/togliatti/geo/3096753024951045/49.464908,53.474358'
             },
             matches: [
-                { title: 'ПОЛУФИНАЛ №1', participants: '1 место Группы А vs 2 место Группы Б' },
-                { title: 'ПОЛУФИНАЛ №2', participants: '2 место Группы А vs 1 место Группы Б' },
-                { title: 'ФИНАЛ', participants: 'Победитель ПФ №1 vs Победитель ПФ №2' },
-                { title: 'МАТЧ ЗА 3 МЕСТО', participants: 'Выбывший из ПФ №1 vs Выбывший из ПФ №2' },
-                { title: 'МАТЧ ЗА 5 МЕСТО', participants: '3 место Группы А vs 3 место Группы Б' },
-                { title: 'МАТЧ ЗА 7 МЕСТО', participants: '4 место Группы А vs 4 место Группы Б' }
+                { time: '10:00', event: 'Разминка команд', note: 'Подготовка к играм плей-офф' },
+                { time: '10:30', title: 'МАТЧ ЗА 7 МЕСТО', participants: '4 место Группы А vs 4 место Группы Б' },
+                { time: '11:30', title: 'ПОЛУФИНАЛ №1', participants: '1 место Группы А vs 2 место Группы Б' },
+                { time: '12:30', title: 'ПОЛУФИНАЛ №2', participants: '2 место Группы А vs 1 место Группы Б' },
+                { time: '13:30', title: 'МАТЧ ЗА 5 МЕСТО', participants: '3 место Группы А vs 3 место Группы Б' },
+                { time: '14:30', title: 'МАТЧ ЗА 3 МЕСТО', participants: 'Выбывший из ПФ №1 vs Выбывший из ПФ №2' },
+                { time: '15:30', title: 'ФИНАЛ', participants: 'Победитель ПФ №1 vs Победитель ПФ №2' }
             ]
         }
     };
@@ -158,14 +159,32 @@ window.renderGameTable = function () {
             // Render Playoff Matches
             activeData.matches.forEach(match => {
                 const card = document.createElement('div');
-                card.className = "bg-white p-5 rounded-2xl shadow-sm border border-gray-100";
+                card.className = "bg-white p-5 rounded-2xl shadow-sm border border-gray-100 relative"; // added relative
 
-                card.innerHTML = `
-                    <div class="flex flex-col items-center text-center">
-                        <h3 class="text-[#5A7ACD] font-bold text-lg mb-2">${match.title}</h3>
-                        <p class="text-gray-700 font-medium">${match.participants}</p>
-                    </div>
-                `;
+                if (match.event) {
+                    // Event Card (Warmup etc)
+                    card.classList.add("bg-gradient-to-r", "from-blue-50", "to-transparent");
+                    card.innerHTML = `
+                         <div class="flex justify-between items-center mb-1">
+                            <span class="bg-[#2B2A2A] text-white text-xs font-bold px-2 py-1 rounded-md">${match.time}</span>
+                        </div>
+                        <div class="text-center py-2">
+                            <h3 class="font-bold text-[#2B2A2A] text-lg">${match.event}</h3>
+                            <p class="text-sm text-gray-500 mt-1">${match.note}</p>
+                        </div>
+                    `;
+                } else {
+                    // Playoff Match Card
+                    card.innerHTML = `
+                        <div class="absolute top-4 left-4">
+                            <span class="bg-[#5A7ACD] text-white text-xs font-bold px-2 py-1 rounded-md">${match.time}</span>
+                        </div>
+                        <div class="flex flex-col items-center text-center mt-6">
+                            <h3 class="text-[#2B2A2A] font-bold text-lg mb-2 uppercase">${match.title}</h3>
+                            <p class="text-gray-700 font-medium">${match.participants}</p>
+                        </div>
+                    `;
+                }
                 contentContainer.appendChild(card);
             });
         } else {
