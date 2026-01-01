@@ -23,6 +23,7 @@
 
     <!-- Main Script -->
     <script src="js/header.js"></script>
+    <script src="js/game_table.js"></script>
     <script src="js/notes.js"></script>
     <script>
         // Initialize Header
@@ -38,6 +39,13 @@
                 window.renderNotes();
             } else {
                 console.error('renderNotes function not found');
+            }
+
+            // Initialize Game Table
+            if (window.renderGameTable) {
+                window.renderGameTable();
+            } else {
+                console.error('renderGameTable function not found');
             }
         });
     </script>
