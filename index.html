@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ДВТ - Дружеский Волейбольный Турнир</title>
+
+    <!-- Tailwind CSS (via CDN as requested) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Favicon (Optional placeholder) -->
+    <!-- <link rel="icon" href="img/favicon.ico" type="image/x-icon"> -->
+</head>
+
+<body class="bg-[#F5F2F2] text-[#2B2A2A]">
+
+    <!-- Main App Container -->
+    <div id="app"></div>
+
+    <!-- Main Script -->
+    <script src="js/header.js"></script>
+    <script>
+        // Initialize Header
+        document.addEventListener('DOMContentLoaded', () => {
+            if (window.renderHeader) {
+                window.renderHeader();
+            } else {
+                console.error('renderHeader function not found');
+            }
+        });
+    </script>
+</body>
+
+</html>
