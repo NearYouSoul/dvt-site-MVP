@@ -25,6 +25,7 @@
     <script src="js/header.js"></script>
     <script src="js/game_table.js"></script>
     <script src="js/notes.js"></script>
+    <script src="js/restoraunt.js"></script>
     <script>
         // Initialize Header
         document.addEventListener('DOMContentLoaded', () => {
@@ -46,6 +47,13 @@
                 window.renderGameTable();
             } else {
                 console.error('renderGameTable function not found');
+            }
+
+            // Initialize Restoraunt Section
+            if (window.renderRestoraunt) {
+                window.renderRestoraunt();
+            } else {
+                console.error('renderRestoraunt function not found');
             }
         });
     </script>
