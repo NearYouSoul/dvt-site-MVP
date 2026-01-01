@@ -58,15 +58,15 @@ window.renderGameTable = function () {
     };
 
     function render() {
-        const existing = document.getElementById(containerId);
-        if (existing) existing.remove();
-
         const section = document.createElement('section');
         section.id = containerId;
         section.className = "w-full px-4 mb-20 max-w-4xl mx-auto mt-8";
 
         const app = document.getElementById('app');
         if (!app) return;
+
+        // Check for existing section to replace (preserves position)
+        const existing = document.getElementById(containerId);
 
         // --- Winner App Promo Block ---
         const promoBlock = document.createElement('div');
@@ -248,13 +248,20 @@ window.renderGameTable = function () {
 
         section.appendChild(contentContainer);
 
-        // Insertion Logic: Should be AFTER Notes Section
-        // Layout: Header -> Notes -> Game Table
-        // We always append to app. If notes is already there, we append after it (which is default behavior of appendChild to same parent).
-        // But if notes is NOT there yet (e.g. initial load where notes loads later), we might have issues if we depend on its presence.
-        // However, standard flow: Header -> Notes -> Game Table.
-        // We will just append to app. The sequence in index.html controls the order.
-        app.appendChild(section);
+        // Insertion Logic: Preserve position when re-rendering
+        // Layout: Header -> Notes -> Game Table -> Restaurant
+        if (existing) {
+            // Replace existing section in-place (preserves position in DOM)
+            existing.replaceWith(section);
+        } else {
+            // First render: insert before restaurant section if it exists
+            const restaurantSection = document.getElementById('restoraunt');
+            if (restaurantSection) {
+                app.insertBefore(section, restaurantSection);
+            } else {
+                app.appendChild(section);
+            }
+        }
     }
 
     // Initial render
