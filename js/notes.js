@@ -124,11 +124,10 @@ window.renderNotes = function () {
     const containerId = 'notes-section';
 
     function render() {
-        // Remove existing if any (re-rendering logic)
-        const existing = document.getElementById(containerId);
-        if (existing) existing.remove();
+        // Content for Active Tab
+        const activeData = data[activeTab];
 
-        // Create Section Container
+        // Create New Section Container
         const section = document.createElement('section');
         section.id = containerId;
         section.className = "w-full px-4 mb-20 max-w-4xl mx-auto mt-8";
@@ -137,8 +136,8 @@ window.renderNotes = function () {
         const app = document.getElementById('app');
         if (!app) return;
 
-        // Content for Active Tab
-        const activeData = data[activeTab];
+        // Check for existing to replace or append
+        const existing = document.getElementById(containerId);
 
         // --- Components ---
 
@@ -207,13 +206,18 @@ window.renderNotes = function () {
         });
 
 
+
         // Assembly
         section.innerHTML = toggleHtml;
         section.appendChild(dynamicListHtml);
         section.insertAdjacentHTML('beforeend', commonHeaderHtml);
         section.appendChild(commonListHtml);
 
-        app.appendChild(section);
+        if (existing) {
+            existing.replaceWith(section);
+        } else {
+            app.appendChild(section);
+        }
     }
 
     // Expose toggle function globally
