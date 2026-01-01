@@ -67,6 +67,38 @@ window.renderGameTable = function () {
         const app = document.getElementById('app');
         if (!app) return;
 
+        // --- Winner App Promo Block ---
+        const promoBlock = document.createElement('div');
+        promoBlock.className = "bg-white p-6 rounded-2xl shadow-sm border border-gray-100 mb-8 text-center";
+
+        promoBlock.innerHTML = `
+            <h2 class="text-xl md:text-2xl font-bold text-[#2B2A2A] mb-2">Хотите следить за результатами матчей?</h2>
+            <p class="text-gray-500 mb-6">Установите приложение Winner и затем перейдите по ссылке на турнир.</p>
+            
+            <div class="flex flex-col md:flex-row gap-4 justify-center">
+                <!-- iOS Button -->
+                <a href="https://apps.apple.com/ru/app/winner-менеджер-лиги/id1453673502" target="_blank" 
+                   class="inline-flex items-center justify-center px-6 py-3 border border-gray-200 rounded-xl text-gray-700 font-bold hover:bg-gray-50 transition-colors">
+                    Winner для IOS
+                </a>
+                
+                <!-- Android Button -->
+                <a href="https://play.google.com/store/apps/details?id=il.talent.winner&pcampaignid=web_share" target="_blank" 
+                   class="inline-flex items-center justify-center px-6 py-3 border border-gray-200 rounded-xl text-gray-700 font-bold hover:bg-gray-50 transition-colors">
+                    Winner для ANDROID
+                </a>
+                
+                <!-- Tournament Link Button -->
+                <button disabled title="Ссылка будет добавлена позже"
+                   class="inline-flex items-center justify-center px-6 py-3 bg-[#5A7ACD] hover:bg-blue-600 text-white rounded-xl font-bold shadow-md transition-all gap-2 opacity-80 cursor-not-allowed">
+                    <img src="img/site/logo_winner.png" alt="Winner" class="w-6 h-6 object-contain brightness-0 invert">
+                    Наблюдать за турниром
+                </button>
+            </div>
+        `;
+
+        section.appendChild(promoBlock);
+
         // --- Tabs ---
         const tabsContainer = document.createElement('div');
         // Fix: Use flex-wrap and justify-center to handle narrow screens per formatting request
@@ -79,8 +111,8 @@ window.renderGameTable = function () {
             const btn = document.createElement('button');
             const isActive = activeTab === tab;
             btn.className = `whitespace-nowrap px-6 py-2 rounded-full text-sm font-bold transition-all duration-300 ${isActive
-                    ? 'bg-[#5A7ACD] text-white shadow-md'
-                    : 'bg-white text-gray-500 hover:text-gray-700 hover:bg-gray-50'
+                ? 'bg-[#5A7ACD] text-white shadow-md'
+                : 'bg-white text-gray-500 hover:text-gray-700 hover:bg-gray-50'
                 }`;
             btn.innerText = tabLabels[tab];
             btn.onclick = () => {
