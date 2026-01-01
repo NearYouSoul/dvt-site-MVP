@@ -9,18 +9,11 @@ window.renderHeader = function () {
         </div>
 
         <!-- Sticky Navigation -->
-        <nav class="fixed top-0 left-0 right-0 z-50 glass h-16 flex items-center justify-between px-4 md:px-8 transition-all duration-300">
+        <nav class="fixed top-0 left-0 right-0 z-50 glass h-16 flex items-center justify-center px-4 md:px-8 transition-all duration-300">
             <!-- Logo -->
             <div class="flex items-center">
                 <img src="img/site/logo_header.png" alt="DVT Logo" class="h-10 md:h-12 w-auto">
             </div>
-
-            <!-- Admin Action (Key Icon) -->
-            <a href="/admin-login" class="p-2 rounded-full hover:bg-white/20 transition-colors duration-200 text-white md:text-[#2B2A2A]" aria-label="Admin Login">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-key">
-                    <circle cx="7.5" cy="15.5" r="5.5"/><path d="m21 2l-6.5 6.5"/><path d="m5 13 1.5-1.5z"/>
-                </svg>
-            </a>
         </nav>
 
         <!-- Hero Section -->
