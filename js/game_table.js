@@ -90,7 +90,7 @@ window.renderGameTable = function () {
                 </a>
                 
                 <!-- Tournament Link Button -->
-                <button disabled title="Ссылка будет добавлена позже"
+                <button disabled title="https://winner-9bee4.firebaseapp.com/?action=follow_tournament&id=KJf5ZdO3vHA2VWwEAJSm"
                    class="inline-flex items-center justify-center px-6 py-3 bg-[#5A7ACD] hover:bg-blue-600 text-white rounded-xl font-bold shadow-md transition-all gap-2 opacity-80 cursor-not-allowed">
                     <img src="img/site/logo_winner.png" alt="Winner" class="w-6 h-6 object-contain brightness-0 invert">
                     Наблюдать за турниром
